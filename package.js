@@ -1,7 +1,7 @@
 Package.describe({
   name: 'fourquet:stores',
   version: '0.0.1',
-  summary: 'Client-side domain management for Meteor.',
+  summary: 'Client-side domain management and UI for Meteor.',
   git: 'https://github.com/fourquet/meteor-package-stores',
   documentation: 'README.md',
   license: 'LICENSE',
