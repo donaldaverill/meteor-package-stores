@@ -1,0 +1,24 @@
+<head>
+  <title>Stores Example</title>
+</head>
+
+<body>
+  {{> app}}
+</body>
+
+<template name="app">
+  <h3>Welcome to the Stores Example!</h3>
+  <button data-show-todos>
+    {{#if Stores.Todos.showTodos}}
+      Hide Todos
+    {{else}}
+      Show Todos
+    {{/if}}
+  </button>
+  <button data-reset-defaults>
+    Reset
+  </button>
+  {{#if Stores.Todos.showTodos}}
+    {{> todos}}
+  {{/if}}
+</template>

@@ -1,29 +1,11 @@
-<head>
-  <title>Stores Example</title>
-</head>
-
-<body>
-  <h1>Welcome to the Stores Example!</h1>
-  {{> wrapper}}
-</body>
-
-<template name="wrapper">
-  <button data-show-todos>
-    {{#if showTodos}}
-      Hide Todos
-    {{else}}
-      Show Todos
-    {{/if}}
-  </button>
-  {{#if showTodos}}
-    {{> todos}}
-  {{/if}}
-</template>
-
 <template name="todos">
-  <p>Current Date {{Stores.Todos.get 'currentDate'}}</p>
+  <p>
+    Current Date: {{moFormat (Stores.Todos.get 'currentDate') 'MMM DD YYYY hh:mm:ss a'}}
+  </p>
   {{#if Stores.Todos.subsReady}}
-    <p>There are {{Stores.Todos.numTodos}} todos.</p>
+    <p>
+      <h4>{{Stores.Todos.numberTodos}} todos</h4>
+    </p>
     <p>
       <input type="text" id="newTodo" placeholder={{Stores.Todos.get 'newTodoPlaceholder'}}>
       <button data-add-todo>Add Todo</button>
@@ -34,7 +16,9 @@
       <button data-reset-new-todo-placeholder>Reset Placeholder</button>
     </p>
     {{#each Stores.Todos.todos}}
-      <p>{{name}}<button data-remove-todo={{_id}}>remove</button></p>
+      <p>{{name}}
+        <button data-remove-todo={{_id}}>remove</button>
+      </p>
     {{/each}}
   {{else}}
     <p>Loading...</p>
